@@ -5,7 +5,7 @@ const PCA = require('pca-js');
 
 // Create an Express app
 const app = express();
-const port = 3000; // You can use any port you prefer
+const port = 3000; 
 
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
@@ -33,10 +33,10 @@ app.get('/', async (req, res) => {
             const numericData = results.map((row) => Object.values(row));
             const pcaResult = await PCA.getEigenVectors(numericData);
 
-            // Choose the number of principal components you want to keep
+            // Choosing the number of principal components we wanna  keep
             const k = 2;
 
-             // Select the top-k eigenvectors from the PCA result
+             // Selecting the top-k eigenvectors from the PCA result
             const topKEigenvectors = [];
             for (i = 0; i < k; i++) {
                 topKEigenvectors.push(pcaResult[i]["vector"])
